@@ -1,0 +1,64 @@
+
+<!-- MOVIE CARDS USING @INPUT DECORATOR -->
+
+<!-- <mat-card class="movie-card" appearance="outlined">
+    <div class="img-wrapper">
+        <img mat-card-image [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="movie poster" />
+
+        <div class="overlay">
+            <p class="overview">
+                {{ movie.overview }}
+            </p>
+        </div>
+    </div>
+
+    <mat-card-content>
+        <h3 class="title">
+            {{ movie.original_title || movie.title }}
+        </h3>
+
+        <span class="badge" [ngClass]="
+      movie.vote_average >= 7
+        ? 'bg-success'
+        : movie.vote_average >= 5
+        ? 'bg-warning text-dark'
+        : 'bg-danger'
+    ">
+            ⭐ {{ movie.vote_average }}
+        </span>
+    </mat-card-content>
+
+    <mat-card-actions class="d-flex justify-content-between">
+        <button mat-raised-button color="primary">Edit</button>
+        <button mat-raised-button color="warn">Delete</button>
+    </mat-card-actions>
+</mat-card> -->
+
+
+
+
+<!-- POSTS CARDS USING INPUT DECORATOR -->
+<div class="card h-100 shadow-sm d-flex flex-column">
+  <div class="card-header">
+    <h2 class="mb-0 fw-semibold text-truncate">
+      {{ post.title }}
+    </h2>
+  </div>
+
+  <div class="card-body flex-grow-1 overflow-auto">
+    <p class="card-text mb-0">
+      {{ post.body }}
+    </p>
+  </div>
+
+  <div class="card-footer d-flex justify-content-between">
+    <button mat-raised-button color="primary">Edit</button>
+    <button mat-raised-button color="warn">Remove</button>
+  </div>
+</div>
+
+
+
+
+
+

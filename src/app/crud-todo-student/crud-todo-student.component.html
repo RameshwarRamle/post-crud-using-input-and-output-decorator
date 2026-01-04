@@ -1,0 +1,130 @@
+<!-- TODO CRUD -->
+
+<h1 class="bg-secondary text-warning my-5 text-center">TODO CRUD</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card p-2">
+                <div class="form-group">
+                    <label for=""><strong>Todo Item</strong></label>
+                    <input type="text" class="form-control" #todoitem>
+                </div>
+
+                <div class="form-group">
+                    <button *ngIf="!isineditmode" (click)="onSubmit()"
+                        class="btn btn-outline-primary btn-sm btn-block">Add Todo</button>
+                    <button *ngIf="isineditmode" (click)="onUpdate()"
+                        class="btn btn-outline-primary btn-sm btn-block">Update Todo</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card p-3 bg-secondary">
+                <ul class="list-group" *ngIf="todoarr.length > 0; else notodo">
+                    <li *ngFor="let todo of todoarr" trackby:trackById
+                        class=" list-group-item d-flex justify-content-between mb-3 align-items-center">
+                        <strong>{{todo.todoitem}}</strong>
+
+                        <div>
+                            <button  mat-mini-fab color="primary" class="mr-3" (click) ="onEdit(todo)">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+
+                            <button  mat-mini-fab color="warn" (click)="onRemove(todo.todoid)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+
+                <ng-template #notodo>
+                    <p class="alert alert-warning">
+                        No Todos Available!!!
+                    </p>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- student CRUD -->
+
+<h1 class="bg-secondary text-warning my-5 text-center">STUDENTS TABLE CRUD</h1>
+
+<div class="container py-4">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card p-3">
+                <h1 class="text-center bg-warning">Student Form</h1>
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" class="form-control" #fname>
+                </div>
+
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" class="form-control" #lname>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" #email>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact">Contact</label>
+                    <input type="text" class="form-control" #contact>
+                </div>
+
+                <div class="form-group">
+                    <button *ngIf="!isineditmode" (click)="onSubmitstudent()"
+                        class="btn btn-outline-primary btn-block bt-sm">Add Student</button>
+                    <button *ngIf="isineditmode" (click)="onUpdatestudent()"
+                        class="btn btn-outline-primary btn-block bt-sm">Update Student</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-7">
+            <div class="card p-3 bg-warning">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Sr No</th>
+                            <th>FullName</th>
+                            <th>Email</th>
+                            <th>Contact</th>
+                            <th>Edit</th>
+                            <th>Remove</th>+
+                        </tr>
+                    </thead>
+
+                    <tbody *ngIf="stdarr.length > 0 ; else nostudent">
+                        <tr *ngFor="let std of stdarr; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{std.fname}} {{std.lname}}</td>
+                            <td>{{std.email}}</td>
+                            <td>{{std.contact}}</td>
+                            <td><button (click)="onEditstudent(std)" mat-mini-fab
+                                    color="primary"><mat-icon>edit</mat-icon></button></td>
+                            <td><button (click)="onRemovestudent(std.id)" mat-mini-fab
+                                    color="warn"><mat-icon>delete</mat-icon></button></td>
+                        </tr>
+                    </tbody>
+
+                    <ng-template #nostudent>
+                        <p class="alert alert-warning mt-4">
+                            No Students Available!!!
+                        </p>
+                    </ng-template>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

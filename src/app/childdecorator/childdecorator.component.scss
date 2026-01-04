@@ -1,0 +1,53 @@
+.movie-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px);
+}
+
+.img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-wrapper img {
+  height: 350px;
+  object-fit: cover;
+}
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.img-wrapper:hover .overlay {
+  opacity: 1;
+}
+
+.overview {
+  font-size: 14px;
+  line-height: 1.4;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.title {
+  font-weight: 600;
+  margin: 10px 0 5px;
+}
+
+.rating {
+  color: #ffb400;
+  font-weight: bold;
+}

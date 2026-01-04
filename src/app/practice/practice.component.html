@@ -1,0 +1,72 @@
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card p-3 bg-info">
+                <form action="">
+                    <div class="form-group">
+                        <label for="">Fname</label>
+                        <input type="text" class="form-control" #fname>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Lname</label>
+                        <input type="text" class="form-control" #lname>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input type="text" class="form-control" #email>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Contact</label>
+                        <input type="text" class="form-control" #contact>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">City</label>
+                        <input type="text" class="form-control" #city>
+                    </div>
+
+                    <div class="form-group">
+                        <button *ngIf="!isineditmode" type="button" (click)="onSubmit()" mat-raised-button
+                            color="primary" class="btn-block">Submit</button>
+                        <button *ngIf="isineditmode" (click)="onUpdate()" mat-raised-button color="primary"
+                            class="btn-block">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-7">
+            <table class="table table-bordered bg-info">
+                <thead class="">
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>City</th>
+                        <th>Edit</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="users.length > 0; else nouser">
+                    <tr *ngFor="let obj of users; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{obj.fname}} {{obj.lname}}</td>
+                        <td>{{obj.email}}</td>
+                        <td>{{obj.contact}}</td>
+                        <td>{{obj.city}}</td>
+                        <td><button (click)="onEdit(obj)" mat-raised-button color="primary">Edit</button></td>
+                        <td><button (click)="onRemove(obj.id)" mat-raised-button color="warn">Remove</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<ng-template #nouser>
+    <p class="alert alert-warning">NO Users Available</p>
+</ng-template>

@@ -1,0 +1,121 @@
+<div class="container py-4">
+  <!-- ADD HOME BUTTON -->
+  <div class="mb-3 text-end">
+    <button mat-raised-button color="accent" (click)="toggleForm()">
+      Add Home
+    </button>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="card p-3 mb-5">
+        <form *ngIf="showForm">
+          <h1 class="text-center bg-warning">Home Details</h1>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" #title>
+              </div>
+
+              <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" class="form-control" #location>
+              </div>
+
+
+              <div class="form-group">
+                <label for="price">Price</label>
+                <input type="text" class="form-control" #price>
+              </div>
+
+
+              <div class="form-group">
+                <label for="beds">Beds</label>
+                <input type="text" class="form-control" #beds>
+              </div>
+
+
+              <div class="form-group">
+                <label for="baths">Baths</label>
+                <input type="text" class="form-control" #baths>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="area">Area</label>
+                <input type="text" class="form-control" #area>
+              </div>
+
+              <div class="form-group">
+                <label for="type">Type</label>
+                <input type="text" class="form-control" #type>
+              </div>
+
+              <div class="form-group">
+                <label for="status">Status</label>
+                <input type="text" class="form-control" #status>
+              </div>
+
+              <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" #description>
+              </div>
+
+              <div class="form-group">
+                <label for="image">Image_Url</label>
+                <input type="text" class="form-control" #image>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <button *ngIf ="!isinEditMode" mat-raised-button color="primary" (click)="onSubmit()" (click)="toggleForm()">ADD HOME</button>
+            <button *ngIf = "isinEditMode" isinEditMode mat-raised-button color="primary">UPDATE HOME</button>
+            <button mat-raised-button color="warn" (click)="toggleForm()">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="row">
+    <div class="col-md-4 mb-4 d-flex" *ngFor="let h of homesarr">
+      <mat-card class="home-card mat-elevation-z12 w-100 bg-info" appearance="outlined">
+        <mat-card-header>
+          <mat-card-title class="fw-bold text-dark">
+            {{ h.title }}
+          </mat-card-title>
+          <mat-card-subtitle class="text-dark">
+            {{ h.location }}
+          </mat-card-subtitle>
+        </mat-card-header>
+
+        <img mat-card-image [src]="h.image" class="home-img" />
+
+        <mat-card-content class="card-content">
+          <p class="text-dark mb-3">
+            {{ h.description }}
+          </p>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="badge bg-danger text-dark">{{ h.area }}</span>
+            <span class="badge bg-warning text-dark">{{ h.type }}</span>
+            <span class="fw-bold text-dark">₹ {{ h.price }}</span>
+          </div>
+        </mat-card-content>
+
+        <mat-card-actions class="card-actions d-flex justify-content-between">
+          <button (click)="toggleForm()" mat-raised-button color="primary">Edit</button>
+          <button (click)=" onRemove(h.id)" mat-raised-button color="warn">Remove</button>
+        </mat-card-actions>
+
+      </mat-card>
+
+    </div>
+  </div>
+</div>

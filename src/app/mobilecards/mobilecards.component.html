@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="card-body bg-info">
+        <div class="row align-items-center">
+            <div class="col-md-3">
+                <img *ngIf="mobile.image; else noimg" [src]="mobile.image" class="img-fluid" alt="">
+
+                <ng-template #noimg>
+                    No Image!!!
+                </ng-template>
+
+            </div>
+            <div class="col-md-7">
+                <h2>{{mobile.name}} <span>({{mobile.brand}})</span></h2>
+            
+
+                <ul class="list-group">
+                    <li class="list-group-item bg-light" *ngFor="let feature of mobile.features">
+                        {{feature}}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-2 text-center">
+                <strong class="h5 d-block">{{mobile.price | currency:"USD"}}</strong>
+                <span class="d-block mb-5 text-overline bg-danger"><del>({{20}})</del>%OFF</span>
+                <strong class="badge rating-badge"
+                [ngClass]="{
+                'bg-success':mobile.rating >=4,
+                'bg-warning':mobile.rating >=3 && mobile.rating < 4,
+                'bg-danger':mobile.rating < 3 
+                }">
+                {{mobile.rating}}</strong>
+            </div>
+
+
+        </div>
+        <div class="d-flex justify-content-between mt-3">
+            <button mat-raised-button color="accent">Add to Cart</button>
+            <button mat-raised-button color="primary">Buy Now</button>   
+        </div>
+    </div>
+</div>

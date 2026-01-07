@@ -52,6 +52,10 @@ export class CrudTodoStudentComponent implements OnInit {
     },
   ];
 
+  trackById(index:number, todo:Itodo){
+    todo.todoid
+  }
+
   editid!: string;
   stdeditid!: string;
 

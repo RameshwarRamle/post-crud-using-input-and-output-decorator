@@ -63,3 +63,9 @@ export interface Istudent{
     contact:number;
     id:string;
 }
+
+
+export interface Ipost{
+  postitem:string,
+  postid:string
+}

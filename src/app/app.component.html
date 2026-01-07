@@ -15,4 +15,54 @@
 
 <!-- <app-parentdecorator></app-parentdecorator> -->
 
-<app-crud-todo-student></app-crud-todo-student>
+<!-- <app-crud-todo-student></app-crud-todo-student> -->
+
+<!-- <app-form></app-form> -->
+
+
+<!-- output decorator -->
+
+<!-- <app-input-output (sendmsg)="getmessage($event)"></app-input-output>
+
+<p>message : {{messagefromchild}}</p> -->
+
+
+
+
+
+
+<!-- postform input output decorator -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card p-3 mb-3">
+                <form #postform="ngForm">
+                    <div class="form-group">
+                        <label for="postitem">POST ITEM</label>
+                        <input required ngModel #postitem="ngModel" type="text" class="form-control" name="postitem">
+                    </div>
+                    <strong class="text-danger" *ngIf="postitem.touched && postitem.hasError('required')">
+                        Postitem is required field!!!
+                    </strong>
+                    <div class="form-group">
+                        <button (click)="onSubmit(postform)" *ngIf="!isineditmode" mat-raised-button color="primary"
+                            class="btn-block">Submit</button>
+                        <button (click)="onUpdate(postform)" *ngIf="isineditmode" mat-raised-button color="primary" class="btn-block">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card p-3">
+                <app-input-output *ngFor="let post of postarr; trackby:trackBypostid"
+                 [post]="post"
+                 (removepost)="onremovefromparent($event)"
+                 (editpost)="oneditfromparent($event)"
+                 >
+
+                </app-input-output>
+            </div>
+        </div>
+    </div>
+</div>

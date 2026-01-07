@@ -1,0 +1,17 @@
+<!-- <div (click)="sendtoparent()">
+    send msg to parent
+</div> -->
+
+
+
+
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center mb-2">
+        {{post.postitem}}
+
+        <div>
+            <button (click)="onEdit()" mat-raised-button color="primary" class="mr-2"><mat-icon>edit</mat-icon></button>
+            <button (click)="onRemove(post.postid)" mat-raised-button color="warn"><mat-icon>delete</mat-icon></button>
+        </div>
+    </li>
+</ul>

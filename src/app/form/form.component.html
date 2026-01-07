@@ -1,0 +1,70 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <div class="card p-3">
+                <form #loginform = "ngForm">
+                    <div class="form-group">
+                        <label for="Username">UserName</label>
+                        <input 
+                        ngModel
+                        #Username="ngModel"
+                        required
+                        pattern="[a-zA-z]+"
+                        type="text" class="form-control" name="Username">
+                    </div>
+
+                    <strong class="text-danger" *ngIf="Username.touched && Username.hasError('required')">
+                        Username is required Field
+                    </strong>
+
+                    <strong class="tex danger" *ngIf="Username.dirty && Username.hasError('pattern')">
+                        Only characters accepts
+                    </strong>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input
+                        required 
+                        pattern="a-zA-Z"
+                        ngModel
+                        #email="ngModel"
+                        type="text" class="form-control" name="email">
+                    </div>
+
+                    <strong class="text-danger" *ngIf="email.touched && email.hasError('required')">
+                        Email is required field!!!
+                    </strong>
+
+                    <strong *ngIf="email.touched && email.hasError('pattern')">
+                    </strong>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input
+                        ngModel
+                        #password="ngModel"
+                        required
+                        pattern="^(?=(?:.*[0-9]){2,})(?=.*[^a-zA-Z0-9]).{6,}$"
+                        minlength="8"
+                        type="text" class="form-control" name="password">
+                    </div>
+
+                    <strong class="text-danger" *ngIf="password.touched && password.hasError('required')">
+                        Password is required field!!!
+                    </strong>
+
+                    <strong class="text-danger" *ngIf="password.dirty && password.hasError('pattern')">
+                        Password must have 3 character 2 numbers 1 special character
+                    </strong>
+
+                    <strong class="text-danger" *ngIf="password.dirty && password.hasError('minlength')">
+                        Password length should be atleast {{password.errors?.['minlength'].requiredLength}}
+                        actual length is {{password.errors?.['minlength'].actualLength}}
+                    </strong>
+
+                        <button mat-raised-button color="primary" class="btn-block">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

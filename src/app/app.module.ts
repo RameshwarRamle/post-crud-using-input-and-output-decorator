@@ -18,6 +18,9 @@ import { ParentdecoratorComponent } from './parentdecorator/parentdecorator.comp
 import { ChilddecoratorComponent } from './childdecorator/childdecorator.component';
 import { MobilecardsComponent } from './mobilecards/mobilecards.component';
 import { CrudTodoStudentComponent } from './crud-todo-student/crud-todo-student.component';
+import { FormComponent } from './form/form.component';
+import { InputOutputComponent } from './input-output/input-output.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import { CrudTodoStudentComponent } from './crud-todo-student/crud-todo-student.
     ParentdecoratorComponent,
     ChilddecoratorComponent,
     MobilecardsComponent,
-    CrudTodoStudentComponent
+    CrudTodoStudentComponent,
+    FormComponent,
+    InputOutputComponent
   ],
   imports: [
     BrowserModule,

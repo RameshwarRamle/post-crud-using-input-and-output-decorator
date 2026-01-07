@@ -60,7 +60,7 @@ export class AppComponent {
     this.postarr.push(val);
     post.resetForm();
 
-    this._snackbar.open(`postitem with id ${val.postid}`, 'close', {
+    this._snackbar.open(`post with id ${val.postid}`, 'close', {
       horizontalPosition: 'left',
       verticalPosition: 'top',
       duration: 3000,
@@ -81,7 +81,7 @@ export class AppComponent {
         this.postarr.splice(getindex, 1);
 
         this._snackbar.open(
-          `The Student with id ${id} is Removed successfully`,
+          `post with id ${id} is Removed successfully`,
           'close',
           {
             horizontalPosition: 'left',
@@ -114,7 +114,7 @@ export class AppComponent {
       this.isineditmode = false;
 
       this._snackbar.open(
-        `Update with id ${updateid} is updated successfully`,
+        `post with id ${updateid} is updated successfully`,
         'close',
         {
           horizontalPosition: 'left',
